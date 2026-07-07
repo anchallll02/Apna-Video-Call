@@ -1,23 +1,23 @@
-# 🎥 Real-Time Video Calling Application
+# 🎥 MERN Video Calling Application
 
-A **Real-Time Video Calling Web Application** built using the **MERN Stack**, **WebRTC**, and **Socket.IO**. This project enables secure and low-latency peer-to-peer video communication through real-time media streaming.
+A **real-time video calling web application** built using the **MERN Stack**, **WebRTC**, and **Socket.IO**. The application enables seamless peer-to-peer video communication with low latency through a modern and responsive interface.
 
-Developed as a **college project**, it demonstrates the implementation of modern real-time communication technologies, WebRTC signaling, and full-stack web development.
+Developed as a **college project**, this application demonstrates the implementation of real-time communication, WebRTC signaling, REST APIs, and full-stack web development.
 
 ---
 
-# ✨ Features
+## ✨ Features
 
-- 📹 Real-time One-to-One Video Calling
+- 🔐 User Authentication
+- 📹 Real-Time One-to-One Video Calling
 - 🔗 Peer-to-Peer Communication using WebRTC
 - 🌐 Socket.IO Signaling Server
-- 🎤 Audio Mute / Unmute
-- 📷 Camera On / Off
-- 🆔 Unique Room ID Generation & Joining
+- 🎤 Mute / Unmute Audio
+- 📷 Enable / Disable Camera
+- 🆔 Room Creation & Room Joining
 - ⚡ Fast Connection Establishment
 - 📱 Responsive User Interface
-- 🌍 Cross-Browser Compatibility
-- 🔄 Real-Time Media Streaming
+- 💻 Dashboard for User Management
 
 ---
 
@@ -29,6 +29,7 @@ Developed as a **college project**, it demonstrates the implementation of modern
 - HTML5
 - CSS3
 - JavaScript (ES6+)
+- Axios
 - Socket.IO Client
 - WebRTC APIs
 
@@ -37,6 +38,7 @@ Developed as a **college project**, it demonstrates the implementation of modern
 - Node.js
 - Express.js
 - Socket.IO
+- REST APIs
 
 ## Database
 
@@ -48,25 +50,17 @@ Developed as a **college project**, it demonstrates the implementation of modern
 # 📂 Project Structure
 
 ```text
-video-calling-app/
+MERN-Video-Calling/
 │
-├── client/
+├── frontend/
 │   │
 │   ├── public/
-│   │   ├── favicon.ico
-│   │   └── index.html
 │   │
 │   ├── src/
 │   │   ├── assets/
 │   │   ├── components/
-│   │   │   ├── VideoPlayer.jsx
-│   │   │   ├── Controls.jsx
-│   │   │   ├── JoinRoom.jsx
-│   │   │   └── Room.jsx
-│   │   │
 │   │   ├── pages/
 │   │   ├── context/
-│   │   ├── hooks/
 │   │   ├── services/
 │   │   ├── App.jsx
 │   │   ├── main.jsx
@@ -75,24 +69,35 @@ video-calling-app/
 │   ├── package.json
 │   └── .env
 │
-├── server/
+├── backend/
 │   │
 │   ├── config/
 │   ├── controllers/
+│   ├── middleware/
 │   ├── models/
 │   ├── routes/
 │   ├── socket/
-│   │   └── socket.js
-│   │
-│   ├── middleware/
 │   ├── utils/
-│   ├── .env
+│   ├── server.js
 │   ├── package.json
-│   └── server.js
+│   └── .env
+│
+├── dashboard/
+│   │
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
+│   ├── package.json
+│   └── .env
 │
 ├── screenshots/
 │   ├── home.png
-│   ├── join-room.png
+│   ├── dashboard.png
+│   ├── room.png
 │   └── video-call.png
 │
 ├── README.md
@@ -104,29 +109,39 @@ video-calling-app/
 
 # ⚙️ Installation & Setup
 
-## 1️⃣ Clone the Repository
+## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/video-calling-app.git
+git clone https://github.com/your-username/your-repository.git
 
-cd video-calling-app
+cd MERN-Video-Calling
 ```
 
 ---
 
-## 2️⃣ Install Dependencies
+## 2. Install Dependencies
 
-### Client
+### Backend
 
 ```bash
-cd client
+cd backend
+
 npm install
 ```
 
-### Server
+### Frontend
 
 ```bash
-cd ../server
+cd ../frontend
+
+npm install
+```
+
+### Dashboard
+
+```bash
+cd ../dashboard
+
 npm install
 ```
 
@@ -134,7 +149,7 @@ npm install
 
 # 🔑 Environment Variables
 
-Create a **.env** file inside the **server** directory.
+Create a `.env` file inside the **backend** directory.
 
 ```env
 PORT=5000
@@ -144,12 +159,12 @@ MONGO_URI=your_mongodb_connection_string
 
 ---
 
-# ▶️ Run the Application
+# ▶️ Run the Project
 
-## Start Backend Server
+## Start Backend
 
 ```bash
-cd server
+cd backend
 
 npm start
 ```
@@ -165,83 +180,56 @@ npm run dev
 ## Start Frontend
 
 ```bash
-cd client
+cd frontend
 
 npm start
 ```
 
-The application will run on
+---
 
-```text
-http://localhost:3000
+## Start Dashboard
+
+```bash
+cd dashboard
+
+npm start
 ```
 
 ---
 
-# 🔄 Application Workflow
+# 🌐 Application Workflow
 
 ```text
-               User A
-                  │
-                  ▼
-          Join/Create Room
-                  │
-                  ▼
-          Socket.IO Signaling
-                  │
-                  ▼
-        WebRTC Offer / Answer
-                  │
-                  ▼
-           ICE Candidate Exchange
-                  │
-                  ▼
-      Peer-to-Peer Connection
-                  │
-                  ▼
-     Audio & Video Streaming
-                  │
-                  ▼
-               User B
+                 User
+                   │
+                   ▼
+          React Frontend
+                   │
+                   ▼
+          Socket.IO Server
+                   │
+         Signaling Process
+                   │
+                   ▼
+          WebRTC Connection
+                   │
+        Audio / Video Stream
+                   │
+                   ▼
+               Another User
 ```
 
 ---
 
-# 🌐 How It Works
+# 📚 Key Concepts Used
 
-1. Users create or join a room using a unique Room ID.
-2. Socket.IO establishes the signaling channel.
-3. WebRTC exchanges SDP Offers and Answers.
-4. ICE Candidates are shared between peers.
-5. A secure peer-to-peer connection is established.
-6. Audio and video streams are transmitted in real time.
-
----
-
-# 📸 Screenshots
-
-Add screenshots of your application inside the **screenshots/** folder.
-
-```text
-screenshots/
-│
-├── home.png
-├── join-room.png
-└── video-call.png
-```
-
----
-
-# 📚 Concepts Implemented
-
+- MERN Stack
 - WebRTC
 - Socket.IO
 - Peer-to-Peer Communication
 - SDP Offer & Answer
 - ICE Candidate Exchange
-- Real-Time Media Streaming
-- MERN Stack Architecture
-- REST APIs
+- REST API Development
 - Responsive Web Design
 
 ---
@@ -250,27 +238,28 @@ screenshots/
 
 - 👥 Group Video Calling
 - 💬 Real-Time Chat
-- 🔐 User Authentication
 - 🖥️ Screen Sharing
+- 📁 File Sharing
 - 📹 Call Recording
 - 🌙 Dark Mode
-- 📁 File Sharing
-- 📊 Call History
+- 🔔 Push Notifications
 
 ---
 
 # 📄 License
 
-This project is developed for **educational purposes** as part of a **college project** and is licensed under the **MIT License**.
+This project was developed for **educational purposes** as part of a college project and is licensed under the **MIT License**.
 
 ---
 
 # 👩‍💻 Author
 
-**Anchallll02**
+**Anchal Maurya**
 
+**Full Stack Developer | MERN Stack Enthusiast | AI Explorer**
 
+GitHub: https://github.com/anchallll02
 
 ---
 
-⭐ If you found this project useful, consider giving it a **Star** on GitHub.
+⭐ If you found this project helpful, consider giving it a **Star** on GitHub.
