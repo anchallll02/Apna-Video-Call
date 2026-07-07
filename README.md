@@ -1,185 +1,276 @@
-# 🎥 Real-Time Video Calling App
+# 🎥 Real-Time Video Calling Application
 
-A real-time video calling web application built using the MERN Stack, WebRTC, and Socket.IO.  
-This project enables seamless peer-to-peer video communication with low latency and real-time media streaming.
+A **Real-Time Video Calling Web Application** built using the **MERN Stack**, **WebRTC**, and **Socket.IO**. This project enables secure and low-latency peer-to-peer video communication through real-time media streaming.
 
----
-
-## 🚀 Features
-
-- Real-time one-to-one video calling
-- Peer-to-peer communication using WebRTC
-- Socket.IO signaling server
-- Audio and video toggle controls
-- Unique room ID system
-- Responsive user interface
-- Fast connection establishment
-- Cross-browser support
+Developed as a **college project**, it demonstrates the implementation of modern real-time communication technologies, WebRTC signaling, and full-stack web development.
 
 ---
 
-## 🛠️ Tech Stack
+# ✨ Features
 
-### Frontend
+- 📹 Real-time One-to-One Video Calling
+- 🔗 Peer-to-Peer Communication using WebRTC
+- 🌐 Socket.IO Signaling Server
+- 🎤 Audio Mute / Unmute
+- 📷 Camera On / Off
+- 🆔 Unique Room ID Generation & Joining
+- ⚡ Fast Connection Establishment
+- 📱 Responsive User Interface
+- 🌍 Cross-Browser Compatibility
+- 🔄 Real-Time Media Streaming
+
+---
+
+# 🛠️ Tech Stack
+
+## Frontend
+
 - React.js
 - HTML5
 - CSS3
-- JavaScript
+- JavaScript (ES6+)
 - Socket.IO Client
 - WebRTC APIs
 
-### Backend
+## Backend
+
 - Node.js
 - Express.js
 - Socket.IO
 
-### Database
+## Database
+
 - MongoDB
+- Mongoose
 
 ---
 
-## 📂 Folder Structure
+# 📂 Project Structure
 
-```bash
+```text
 video-calling-app/
 │
 ├── client/
+│   │
 │   ├── public/
+│   │   ├── favicon.ico
+│   │   └── index.html
+│   │
 │   ├── src/
-│   └── package.json
+│   │   ├── assets/
+│   │   ├── components/
+│   │   │   ├── VideoPlayer.jsx
+│   │   │   ├── Controls.jsx
+│   │   │   ├── JoinRoom.jsx
+│   │   │   └── Room.jsx
+│   │   │
+│   │   ├── pages/
+│   │   ├── context/
+│   │   ├── hooks/
+│   │   ├── services/
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   │
+│   ├── package.json
+│   └── .env
 │
 ├── server/
+│   │
+│   ├── config/
+│   ├── controllers/
+│   ├── models/
 │   ├── routes/
 │   ├── socket/
-│   ├── server.js
-│   └── package.json
+│   │   └── socket.js
+│   │
+│   ├── middleware/
+│   ├── utils/
+│   ├── .env
+│   ├── package.json
+│   └── server.js
+│
+├── screenshots/
+│   ├── home.png
+│   ├── join-room.png
+│   └── video-call.png
 │
 ├── README.md
-└── package.json
+├── package.json
+└── .gitignore
 ```
 
 ---
 
-## ⚙️ Installation
+# ⚙️ Installation & Setup
 
-### Clone the Repository
+## 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/your-username/video-calling-app.git
+
 cd video-calling-app
 ```
 
 ---
 
-## Install Dependencies
+## 2️⃣ Install Dependencies
 
-### Frontend
+### Client
 
 ```bash
 cd client
 npm install
 ```
 
-### Backend
+### Server
 
 ```bash
-cd server
+cd ../server
 npm install
 ```
 
 ---
 
-## 🔐 Environment Variables
+# 🔑 Environment Variables
 
-Create a `.env` file inside the server folder and add:
+Create a **.env** file inside the **server** directory.
 
 ```env
 PORT=5000
+
 MONGO_URI=your_mongodb_connection_string
 ```
 
 ---
 
-## ▶️ Run the Application
+# ▶️ Run the Application
 
-### Start Backend Server
+## Start Backend Server
 
 ```bash
 cd server
+
 npm start
 ```
 
-### Start Frontend
+or
+
+```bash
+npm run dev
+```
+
+---
+
+## Start Frontend
 
 ```bash
 cd client
+
 npm start
 ```
 
----
+The application will run on
 
-## 🌐 How It Works
-
-1. Users join the same room using a Room ID.
-2. Socket.IO handles signaling between users.
-3. WebRTC establishes a peer-to-peer connection.
-4. Media streams are exchanged directly between users.
-
----
-
-## 📸 Screenshots
-
-Add your project screenshots here.
-
-```bash
-screenshots/home.png
-screenshots/video-call.png
+```text
+http://localhost:3000
 ```
 
 ---
 
-## 🔥 Concepts Used
+# 🔄 Application Workflow
+
+```text
+               User A
+                  │
+                  ▼
+          Join/Create Room
+                  │
+                  ▼
+          Socket.IO Signaling
+                  │
+                  ▼
+        WebRTC Offer / Answer
+                  │
+                  ▼
+           ICE Candidate Exchange
+                  │
+                  ▼
+      Peer-to-Peer Connection
+                  │
+                  ▼
+     Audio & Video Streaming
+                  │
+                  ▼
+               User B
+```
+
+---
+
+# 🌐 How It Works
+
+1. Users create or join a room using a unique Room ID.
+2. Socket.IO establishes the signaling channel.
+3. WebRTC exchanges SDP Offers and Answers.
+4. ICE Candidates are shared between peers.
+5. A secure peer-to-peer connection is established.
+6. Audio and video streams are transmitted in real time.
+
+---
+
+# 📸 Screenshots
+
+Add screenshots of your application inside the **screenshots/** folder.
+
+```text
+screenshots/
+│
+├── home.png
+├── join-room.png
+└── video-call.png
+```
+
+---
+
+# 📚 Concepts Implemented
 
 - WebRTC
 - Socket.IO
-- ICE Candidates
-- SDP Offer/Answer
 - Peer-to-Peer Communication
-- MERN Stack
-- Real-Time Communication
+- SDP Offer & Answer
+- ICE Candidate Exchange
+- Real-Time Media Streaming
+- MERN Stack Architecture
+- REST APIs
+- Responsive Web Design
 
 ---
 
-## 📈 Future Improvements
+# 🚀 Future Enhancements
 
-- Group video calling
-- Real-time chat
-- Authentication system
-- Screen sharing
-- Call recording
-- Dark mode
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome.
-
-1. Fork the repository
-2. Create your branch
-3. Commit changes
-4. Push the branch
-5. Open a Pull Request
+- 👥 Group Video Calling
+- 💬 Real-Time Chat
+- 🔐 User Authentication
+- 🖥️ Screen Sharing
+- 📹 Call Recording
+- 🌙 Dark Mode
+- 📁 File Sharing
+- 📊 Call History
 
 ---
 
-## 📄 License
+# 📄 License
 
-This project is licensed under the MIT License.
+This project is developed for **educational purposes** as part of a **college project** and is licensed under the **MIT License**.
 
 ---
 
-## 👩‍💻 Author
+# 👩‍💻 Author
 
-Anchal Maurya  
-MERN Stack Developer 🚀
+**Anchallll02**
+
+
+
+---
+
+⭐ If you found this project useful, consider giving it a **Star** on GitHub.
