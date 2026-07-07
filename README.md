@@ -254,12 +254,4 @@ This project was developed for **educational purposes** as part of a college pro
 
 # 👩‍💻 Author
 
-**Anchal Maurya**
-
-**Full Stack Developer | MERN Stack Enthusiast | AI Explorer**
-
-GitHub: https://github.com/anchallll02
-
----
-
-⭐ If you found this project helpful, consider giving it a **Star** on GitHub.
+**Anchallll02**
